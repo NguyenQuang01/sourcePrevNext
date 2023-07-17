@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>title</title>
+        <link
+            rel="stylesheet"
+            href="//fonts.googleapis.com/css?family=font1|font2|etc"
+            type="text/css"
+        />
+        <script src="https://kit.fontawesome.com/2c7fc28a2f.js"></script>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+
+            .items {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border-radius: 50px !important;
+                /* user-select: none; */
+            }
+
+            .items .item {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 550px;
+                height: 450px;
+                /* border-radius: 50%; */
+                overflow: hidden;
+                transition: all 300ms ease-in-out;
+                z-index: -1;
+                opacity: 0;
+                border-radius: 50px !important;
+            }
+
+            .item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 50px !important;
+            }
+
+            .item.active {
+                opacity: 1;
+                z-index: 99;
+                box-shadow: 0px 0px 105px -35px rgba(0, 0, 0, 0.75);
+            }
+
+            .item.prev {
+                z-index: 2;
+                opacity: 0.25;
+                transform: translate(-115%, -50%) scaleY(0.5) scaleX(0.5);
+            }
+
+            .item.next {
+                z-index: 2;
+                opacity: 0.25;
+                transform: translate(15%, -50%) scaleY(0.5) scaleX(0.5);
+            }
+
+            .items .button-container {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 1205px;
+                z-index: 100;
+            }
+
+            .button-container .button {
+                color: #fff;
+                font-size: 32px;
+                cursor: pointer;
+                position: relative;
+                opacity: 0.75;
+                transition: all 300ms ease-in-out;
+            }
+
+            .button-container .button:hover {
+                opacity: 1;
+            }
+
+            .button-container .button:before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 50px;
+                height: 50px;
+                background-color: rgba(0, 0, 0, 1);
+                border-radius: 50%;
+                z-index: -99;
+            }
+
+            .button-container .button:nth-child(1) {
+                float: left;
+            }
+
+            .button-container .button:nth-child(2) {
+                float: right;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="items">
+            <div class="item active">
+                <img
+                    src="https://scontent.fhan5-8.fna.fbcdn.net/v/t39.30808-6/314905393_1551832688602443_4239483978924822202_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=174925&_nc_ohc=b_RcDXCWTKkAX_HhwSW&_nc_ht=scontent.fhan5-8.fna&oh=00_AfCQapAMXC_N-MyOqSx2VoB7AEB9e6jNo5oYH5LRYOAmcw&oe=64BA2F2B"
+                />
+            </div>
+            <div class="item next">
+                <img
+                    src="https://scontent.fhan14-1.fna.fbcdn.net/v/t39.30808-6/347560896_3361495657434476_7127622991981381395_n.jpg?stp=dst-jpg_p180x540&_nc_cat=105&ccb=1-7&_nc_sid=e3f864&_nc_ohc=t1zs5D7SQJwAX8Ti4fT&_nc_ht=scontent.fhan14-1.fna&oh=00_AfBQOztGoHAhUAi3qsji6jBL2fxTgXrShe31fw1xu7p_2A&oe=64BAC51E"
+                />
+            </div>
+            <div class="item">
+                <img
+                    src="https://scontent.fhan14-3.fna.fbcdn.net/v/t39.30808-6/351121969_1685285141923863_5270163004238805438_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=1jbSFbo2fEEAX9z7EpB&_nc_oc=AQkztdQOQftYTrpkZ28NQbGdm_sjkqAcdJL6_fKjS6vk9JPFPXIebl-uUIEJ34C1I3w&_nc_ht=scontent.fhan14-3.fna&oh=00_AfAhxfAO4r5I8C3Lt-OPe3h7qjTBAOTLXKh4D7Q0uhNihg&oe=64B9034B"
+                />
+            </div>
+            <div class="item">
+                <img
+                    src="https://scontent.fhan14-2.fna.fbcdn.net/v/t39.30808-6/344762880_1926180081074707_4210015123554637976_n.jpg?stp=dst-jpg_p180x540&_nc_cat=108&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=lBAtTRDfFqkAX_MlSLV&_nc_oc=AQlbHk30PsfPVgsbr61lGaa72Opp6LNBjbH4H7vsuHOEQY2hYm7h6Ed_Uk-SN9DmSuI&_nc_ht=scontent.fhan14-2.fna&oh=00_AfA0YWhoVwk_r7Jv9xX3wngvueQ6rjswz1HQUArqmGN07w&oe=64B9966A"
+                />
+            </div>
+            <div class="item prev">
+                <img
+                    src="https://scontent.fhan14-1.fna.fbcdn.net/v/t39.30808-6/333041321_536676925273889_4542554405500333811_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=174925&_nc_ohc=vOrFofBnWOEAX8Uq-fX&_nc_ht=scontent.fhan14-1.fna&oh=00_AfDnZJtzcSPZUWAfACWxlnhu9pAHcgTInc2pNNOHmZhtdw&oe=64B9C9B6"
+                />
+            </div>
+            <div class="button-container">
+                <div class="button"><i class="fas fa-angle-left"></i></div>
+                <div class="button"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+        <script>
+            // I will be creating a different pen with touch support but right // now I have no time for it due to school
+
+            const slider = document.querySelector(".items");
+            const slides = document.querySelectorAll(".item");
+            const button = document.querySelectorAll(".button");
+
+            let current = 0;
+            let prev = 4;
+            let next = 1;
+
+            for (let i = 0; i < button.length; i++) {
+                button[i].addEventListener("click", () =>
+                    i == 0 ? gotoPrev() : gotoNext()
+                );
+            }
+
+            const gotoPrev = () =>
+                current > 0 ? gotoNum(current - 1) : gotoNum(slides.length - 1);
+
+            const gotoNext = () =>
+                current < 4 ? gotoNum(current + 1) : gotoNum(0);
+
+            const gotoNum = (number) => {
+                current = number;
+                prev = current - 1;
+                next = current + 1;
+
+                for (let i = 0; i < slides.length; i++) {
+                    slides[i].classList.remove("active");
+                    slides[i].classList.remove("prev");
+                    slides[i].classList.remove("next");
+                }
+
+                if (next == 5) {
+                    next = 0;
+                }
+
+                if (prev == -1) {
+                    prev = 4;
+                }
+
+                slides[current].classList.add("active");
+                slides[prev].classList.add("prev");
+                slides[next].classList.add("next");
+            };
+        </script>
+    </body>
+</html>
